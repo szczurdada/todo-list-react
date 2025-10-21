@@ -1,0 +1,19 @@
+.input {
+  flex: 1;
+  padding: 10px;
+  background-color: #F1F4F9;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+
+  &::placeholder {
+    color: #CDCDCD;
+  }
+
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 1.3px rgba(44, 132, 219, 0.4);
+  }
+}

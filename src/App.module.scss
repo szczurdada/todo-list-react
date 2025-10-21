@@ -1,0 +1,16 @@
+.container {
+    width: 100%;
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F1F4F9;
+}

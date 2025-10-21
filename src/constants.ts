@@ -1,0 +1,1 @@
+export const TODO_LS_KEY_POSTFIX = 'todos';

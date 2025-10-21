@@ -1,0 +1,20 @@
+.button {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #3B82F6;
+  color: #FFFFFF;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    outline: none;
+  }
+}
+
+.buttonPlus {
+  width: 20px;
+  height: 20px;
+}

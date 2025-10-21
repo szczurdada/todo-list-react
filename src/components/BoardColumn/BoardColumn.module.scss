@@ -1,0 +1,11 @@
+.boardColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 400px;
+  padding: 30px;
+  border: 0;
+  background: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
