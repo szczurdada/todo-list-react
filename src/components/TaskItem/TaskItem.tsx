@@ -5,17 +5,17 @@ import {TaskItemProps} from "./types";
 export default function TaskItem({ todo, onToggle, onDelete }: TaskItemProps)  {
     return (
         <div className={`${styles.taskItem} ${todo.completed ? styles.completed : ''}`}>
-            <div onClick={onToggle}>
+            <button className={styles.checkbox} onClick={onToggle}>
                 {todo.completed ? (
                     <CircleCheck className={`${styles.checkbox} ${styles.checked}`}/>
                 ) : (
                     <Circle className={styles.checkbox}/>
                 )}
-            </div>
+            </button>
             <span>{todo.text}</span>
-            <div onClick={onDelete}>
+            <button className={styles.deleteButton} onClick={onDelete}>
                 <Trash2 className={styles.deleteButton}/>
-            </div>
+            </button>
         </div>
     )
 }

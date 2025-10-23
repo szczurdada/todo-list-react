@@ -1,0 +1,14 @@
+.themeButton {
+  display: flex;
+  position: absolute;
+  right: 10vw;
+  top: 15px;
+  //padding: 0;
+  height: 24px;
+  width: 24px;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--third-text-color);
+}

@@ -6,7 +6,7 @@ import Input from "../Input/Input";
 import Button from "../Button/Button";
 import TaskList from "../TaskList/TaskList";
 
-import {ChangeEvent, KeyboardEvent, useEffect, useState} from 'react';
+import {ChangeEvent, KeyboardEvent, useState} from 'react';
 import {Todo} from "../../types/Todo/Todo";
 import { v4 as uuidv4 } from "uuid";
 import {TODO_LS_KEY_POSTFIX} from "../../constants";
@@ -19,6 +19,20 @@ export default function BoardColumn({name}: BoardColumnProps) {
         const saved = localStorage.getItem(todoLsKey);
         return saved ? JSON.parse(saved) : [];
     });
+
+    const addTodo = () => {
+        if (input.trim() === '') return;
+        if (input.length > 30) return;
+
+        const newTodo = {
+            id: uuidv4(),
+            text: input,
+            completed: false,
+        }
+        setTodos([...todos, newTodo]);
+        localStorage.setItem(todoLsKey, JSON.stringify([...todos, newTodo]));
+        setInput('');
+    }
 
     const toggleTodo = (id: string) => {
         setTodos(todos.map((todo) => {
@@ -33,19 +47,6 @@ export default function BoardColumn({name}: BoardColumnProps) {
         setTodos(todos.filter(todo => todo.id !== id));
     };
 
-    const addTodo = () => {
-        if (input.trim() === '') return;
-
-        const newTodo = {
-            id: uuidv4(),
-            text: input,
-            completed: false,
-        }
-        setTodos([...todos, newTodo]);
-        localStorage.setItem(todoLsKey, JSON.stringify([...todos, newTodo]));
-        setInput('');
-    }
-
     const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value)
     }
@@ -56,7 +57,7 @@ export default function BoardColumn({name}: BoardColumnProps) {
 
     return (
         <div className={styles.boardColumn}>
-            <h1>{name}</h1>
+            <h1 className={styles.heading}>{name}</h1>
             <TaskStatus todos={todos} />
             <InputContainer>
                 <Input

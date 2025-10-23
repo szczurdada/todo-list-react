@@ -5,7 +5,10 @@
   width: 400px;
   padding: 30px;
   border: 0;
-  background: #FFFFFF;
+  background: var(--card-bg-color);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+.heading {
+  color: var(--primary-text-color);
 }

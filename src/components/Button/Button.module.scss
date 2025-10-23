@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   padding: 10px;
-  background-color: #3B82F6;
-  color: #FFFFFF;
+  background-color: var(--brand-bg-color);
+  color: var(--input-bg-color);
   border: 0;
   border-radius: 5px;
   cursor: pointer;
@@ -17,4 +17,5 @@
 .buttonPlus {
   width: 20px;
   height: 20px;
+  color: #F1F4F9;
 }
