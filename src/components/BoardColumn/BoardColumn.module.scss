@@ -2,12 +2,21 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 400px;
+  width: 90%;
+  max-width: 500px;
   padding: 30px;
-  border: 0;
   background: var(--card-bg-color);
   border-radius: 8px;
   box-shadow: 0 4px 8px var(--shadow-color);
+
+  @media (min-width: 640px) {
+    width: 70%;
+  }
+
+  @media (min-width: 1025px) {
+    width: 30vw;
+    min-height: 350px;
+  }
 }
 .heading {
   color: var(--primary-text-color);
