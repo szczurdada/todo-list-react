@@ -6,7 +6,7 @@ import Input from "../Input/Input";
 import Button from "../Button/Button";
 import TaskList from "../TaskList/TaskList";
 
-import {ChangeEvent, KeyboardEvent, useState} from 'react';
+import {ChangeEvent, KeyboardEvent, useEffect, useState} from 'react';
 import {Todo} from "../../types/Todo/Todo";
 import { v4 as uuidv4 } from "uuid";
 import {TODO_LS_KEY_POSTFIX} from "../../constants";
@@ -20,6 +20,10 @@ export default function BoardColumn({name}: BoardColumnProps) {
         return saved ? JSON.parse(saved) : [];
     });
 
+    useEffect(() => {
+        localStorage.setItem(todoLsKey, JSON.stringify(todos));
+    }, [todos, todoLsKey]);
+
     const addTodo = () => {
         if (input.trim() === '') return;
         if (input.length > 30) return;
@@ -30,7 +34,6 @@ export default function BoardColumn({name}: BoardColumnProps) {
             completed: false,
         }
         setTodos([...todos, newTodo]);
-        localStorage.setItem(todoLsKey, JSON.stringify([...todos, newTodo]));
         setInput('');
     }
 
@@ -75,3 +78,4 @@ export default function BoardColumn({name}: BoardColumnProps) {
         </div>
     );
 }
+//add useEffect(localstorage), add cssbreakpoints and adaptive
