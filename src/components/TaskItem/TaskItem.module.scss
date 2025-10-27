@@ -19,6 +19,14 @@
   }
 }
 
+.span {
+  display: block;
+  white-space: normal;
+  overflow-wrap: break-word;
+  max-width: 80%;
+  width: 100%;
+}
+
 .deleteButton {
   align-items: center;
   width: 16px;

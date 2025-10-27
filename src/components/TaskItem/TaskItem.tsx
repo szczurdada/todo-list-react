@@ -2,7 +2,7 @@ import styles from "./TaskItem.module.scss";
 import { Circle, Trash2, CircleCheck } from 'lucide-react';
 import {TaskItemProps} from "./types";
 
-export default function TaskItem({ todo, onToggle, onDelete }: TaskItemProps)  {
+export default function TaskItem({ todo, onToggle, onDelete}: TaskItemProps)  {
     return (
         <div className={`${styles.taskItem} ${todo.completed ? styles.completed : ''}`}>
             <button className={styles.checkbox} onClick={onToggle}>
@@ -12,7 +12,7 @@ export default function TaskItem({ todo, onToggle, onDelete }: TaskItemProps)  {
                     <Circle className={styles.checkbox}/>
                 )}
             </button>
-            <span>{todo.text}</span>
+            <span className={styles.span}>{todo.text}</span>
             <button className={styles.deleteButton} onClick={onDelete}>
                 <Trash2 className={styles.deleteButton}/>
             </button>

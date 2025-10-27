@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  justify-content: center;
+  gap: 30px;
+  background-color: var(--card-bg-color);
+}
+.input {
+}

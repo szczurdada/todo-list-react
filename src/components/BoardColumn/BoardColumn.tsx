@@ -12,7 +12,7 @@ import { v4 as uuidv4 } from "uuid";
 import {TODO_LS_KEY_POSTFIX} from "../../constants";
 import {BoardColumnProps} from "./types";
 
-export default function BoardColumn({name}: BoardColumnProps) {
+export default function BoardColumn({name, searchInput}: BoardColumnProps) {
     const todoLsKey = `${name}_${TODO_LS_KEY_POSTFIX}`;
     const [input, setInput] = useState('');
     const [todos, setTodos] = useState<Todo[]>(() => {
@@ -26,7 +26,7 @@ export default function BoardColumn({name}: BoardColumnProps) {
 
     const addTodo = () => {
         if (input.trim() === '') return;
-        if (input.length > 30) return;
+        if (input.length > 200) return;
 
         const newTodo = {
             id: uuidv4(),
@@ -36,6 +36,8 @@ export default function BoardColumn({name}: BoardColumnProps) {
         setTodos([...todos, newTodo]);
         setInput('');
     }
+
+    const filteredTodos = searchInput === '' ? todos : todos.filter((todo) => todo.text.includes(searchInput));
 
     const toggleTodo = (id: string) => {
         setTodos(todos.map((todo) => {
@@ -61,21 +63,21 @@ export default function BoardColumn({name}: BoardColumnProps) {
     return (
         <div className={styles.boardColumn}>
             <h1 className={styles.heading}>{name}</h1>
-            <TaskStatus todos={todos} />
+            <TaskStatus todos={filteredTodos} />
             <InputContainer>
                 <Input
                     value={input}
                     onChange={onInputChange}
                     onKeyDown={onInputKeyDown}
+                    placeholder='Add your task...'
                 />
                 <Button onClick={addTodo}/>
             </InputContainer>
             <TaskList
-                todos={todos}
+                todos={filteredTodos}
                 onToggle={toggleTodo}
                 onDelete={deleteTodo}
             />
         </div>
     );
 }
-//add useEffect(localstorage), add cssbreakpoints and adaptive
