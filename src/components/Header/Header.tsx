@@ -9,9 +9,9 @@ export default function Header({isDark, onToggle, searchInput, setSearchInput}: 
         <div className={styles.header}>
             <InputContainer>
                 <Input
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                placeholder='Find your task'
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    placeholder='Find your task'
                 />
             </InputContainer>
             <ThemeButton isDark={isDark} onToggle={onToggle} />

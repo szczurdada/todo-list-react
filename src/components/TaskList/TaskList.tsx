@@ -2,7 +2,7 @@ import styles from "./TaskList.module.scss";
 import TaskItem from "../TaskItem/TaskItem"
 import {TaskListProps} from "./types";
 
-export default function TaskList({todos, onToggle, onDelete}: TaskListProps) {
+export default function TaskList({todos, onToggle, onDelete, searchInput}: TaskListProps) {
     if (todos.length === 0) {
         return (
             <div className={styles.taskList}>
@@ -18,6 +18,7 @@ export default function TaskList({todos, onToggle, onDelete}: TaskListProps) {
                         todo={todo}
                         onToggle={() => onToggle(todo.id)}
                         onDelete={() => onDelete(todo.id)}
+                        searchInput={searchInput}
                     />
                 ))}
             </div>

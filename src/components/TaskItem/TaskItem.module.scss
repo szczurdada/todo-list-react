@@ -17,6 +17,13 @@
     text-decoration: line-through;
     color: var(--third-text-color);
   }
+
+  &.highlighted {
+    border-left: 4px solid var(--brand-color);
+    background-color: rgba(59, 130, 246, 0.08);
+    font-weight: 600;
+    padding-left: 10px;
+  }
 }
 
 .span {
@@ -36,6 +43,11 @@
   color: var(--third-text-color);
   border: none;
   cursor: pointer;
+
+  &.highlighted {
+    color: var(--brand-color);
+    opacity: 0.6;
+  }
 }
 
 .checkbox {
@@ -49,6 +61,11 @@
   cursor: pointer;
 
   &.checked {
-    color: var(--success-bg-color);
+    color: var(--success-color);
+  }
+
+  &.highlighted {
+    color: var(--brand-color);
+    opacity: 0.6;
   }
 }

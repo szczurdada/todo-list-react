@@ -4,4 +4,5 @@ export interface TaskItemProps {
     todo: Todo;
     onToggle: () => void;
     onDelete: () => void;
+    searchInput: string;
 }

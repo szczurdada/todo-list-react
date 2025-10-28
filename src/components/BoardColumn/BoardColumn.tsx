@@ -37,8 +37,6 @@ export default function BoardColumn({name, searchInput}: BoardColumnProps) {
         setInput('');
     }
 
-    const filteredTodos = searchInput === '' ? todos : todos.filter((todo) => todo.text.includes(searchInput));
-
     const toggleTodo = (id: string) => {
         setTodos(todos.map((todo) => {
             if (todo.id === id) {
@@ -63,7 +61,7 @@ export default function BoardColumn({name, searchInput}: BoardColumnProps) {
     return (
         <div className={styles.boardColumn}>
             <h1 className={styles.heading}>{name}</h1>
-            <TaskStatus todos={filteredTodos} />
+            <TaskStatus todos={todos} />
             <InputContainer>
                 <Input
                     value={input}
@@ -74,7 +72,8 @@ export default function BoardColumn({name, searchInput}: BoardColumnProps) {
                 <Button onClick={addTodo}/>
             </InputContainer>
             <TaskList
-                todos={filteredTodos}
+                todos={todos}
+                searchInput={searchInput}
                 onToggle={toggleTodo}
                 onDelete={deleteTodo}
             />

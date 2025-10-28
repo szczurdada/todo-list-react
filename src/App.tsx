@@ -1,17 +1,21 @@
 import BoardColumn from "./components/BoardColumn/BoardColumn";
 import styles from "./App.module.scss"
 import Header from "./components/Header/Header";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 export function TodoApp() {
-    const [isDark, setDark] = useState(false);
+    const theme = localStorage.getItem('theme');
+    const [isDark, setDark] = useState(theme === 'dark');
     const [searchInput, setSearchInput] = useState('');
+    const onToggleTheme = () => {setDark(!isDark)
+        localStorage.setItem('theme', !isDark ? 'dark' : 'light');
+    }
 
     return (
         <div className={isDark ? styles.dark : ''}>
             <Header
                 isDark={isDark}
-                onToggle={() => setDark(!isDark)}
+                onToggle={onToggleTheme}
                 searchInput={searchInput}
                 setSearchInput={setSearchInput}
             />
